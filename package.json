@@ -2,14 +2,14 @@
   "name": "markdown-picgo-editor",
   "displayName": "Markdown PicGo Editor",
   "description": "A Vditor-based Markdown editor for VS Code with seamless PicGo image upload support.",
-  "publisher": "ZhiQiang Huang",
+  "publisher": "markdown-picgo-editor",
   "repository": {
     "type": "git",
     "url": "git@github.com:pnparadise/markdown-picgo-editor.git"
   },
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.106.0"
   },
   "activationEvents": [
     "onCustomEditor:vditor.editor"
