@@ -1,0 +1,55 @@
+{
+  "name": "markdown-picgo-editor",
+  "displayName": "Markdown PicGo Editor",
+  "description": "A Vditor-based Markdown editor for VS Code with seamless PicGo image upload support.",
+  "publisher": "ZhiQiang Huang",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pnparadise/markdown-picgo-editor.git"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "activationEvents": [
+    "onCustomEditor:vditor.editor"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "vditor.editor",
+        "displayName": "Vditor",
+        "selector": [
+          {
+            "filenamePattern": "*.md"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "configuration": {
+      "title": "Vditor",
+      "properties": {
+        "vditor.picgoPath": {
+          "type": "string",
+          "default": "picgo",
+          "description": "Path to the PicGo executable in WSL."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "vditor": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.106.1",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  }
+}
