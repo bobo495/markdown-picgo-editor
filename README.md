@@ -3,5 +3,5 @@ FORK FROM: [pnparadise/markdown-picgo-editor](https://github.com/pnparadise/mark
 package method
 
 ```bash
-npm install 
+npm run package 
 ```
