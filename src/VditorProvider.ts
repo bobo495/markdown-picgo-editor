@@ -197,7 +197,7 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
                         // Initialize Vditor
                         vditor = new Vditor('vditor', {
                         height: '100%',
-                        mode: 'ir', // Instant Rendering mode
+                        mode: 'wysiwyg', // Instant Rendering mode
                         theme: isDark ? 'dark' : 'classic',
                         preview: {
                             theme: {
@@ -207,7 +207,7 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
                                 lineNumber: true,
                                 style: 'atom-one-dark',
                             },
-                        },t
+                        },
                         toolbar: [
                             'emoji', 'headings', 'bold', 'italic', 'strike', 'link', '|',
                             'list', 'ordered-list', 'check', 'outdent', 'indent', '|',
