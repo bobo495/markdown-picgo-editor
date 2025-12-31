@@ -61,7 +61,7 @@
   --toolbar-height: 35px;
   --toolbar-divider-margin-top: 8px;
   --textarea-background-color: #fafbfc;
-  --textarea-text-color: #24292e;
+  --textarea-text-color: #0C1117;
   --resize-icon-color: var(--toolbar-icon-color);
   --resize-background-color: var(--toolbar-background-color);
   --resize-hover-icon-color: var(--panel-background-color);
@@ -79,12 +79,12 @@
 .vditor--dark {
   --border-color: #141414;
   --second-color: rgba(185, 185, 185, 0.36);
-  --panel-background-color: #24292e;
+  --panel-background-color: #0C1117;
   --panel-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
   --toolbar-background-color: #1d2125;
   --toolbar-icon-color: #b9b9b9;
   --toolbar-icon-hover-color: #fff;
-  --textarea-background-color: #2f363d;
+  --textarea-background-color: #0C1117;
   --textarea-text-color: #d1d5da;
   --resize-icon-color: var(--border-color);
   --resize-background-color: var(--second-color);
@@ -809,7 +809,7 @@
   margin-right: 3px;
 }
 .vditor-reset {
-  color: #24292e;
+  color: #0C1117;
   font-variant-ligatures: no-common-ligatures;
   font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
   word-wrap: break-word;
@@ -1042,7 +1042,7 @@
   padding: 3px 5px;
   font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
   line-height: 10px;
-  color: #24292e;
+  color: #0C1117;
   vertical-align: middle;
   background-color: #fafbfc;
   border: solid 1px #d1d5da;
@@ -1212,7 +1212,7 @@
 .vditor-linkcard__title {
   font-size: 14px;
   font-weight: 400;
-  color: #24292e;
+  color: #0C1117;
   display: flex;
   align-items: center;
 }

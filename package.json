@@ -7,10 +7,23 @@
     "type": "git",
     "url": "git@github.com:pnparadise/markdown-picgo-editor.git"
   },
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.106.0"
   },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "markdown",
+    "vditor",
+    "picgo",
+    "editor",
+    "image",
+    "upload"
+  ],
   "activationEvents": [
     "onCustomEditor:vditor.editor"
   ],
@@ -45,11 +58,14 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.106.1",
+    "@vscode/vsce": "^2.32.0",
     "typescript": "^5.0.0"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "build": "npm run compile && npm run package"
   }
 }

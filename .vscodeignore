@@ -1,0 +1,60 @@
+# Source files
+src/**
+**/*.ts
+**/*.map
+
+# Development files
+.vscode/**
+.gitignore
+.git/
+.vscode-test/
+*.vsix
+
+# TypeScript configuration
+tsconfig.json
+tsconfig.build.json
+
+# Node.js related
+node_modules/**/src/**
+node_modules/**/test/**
+node_modules/**/docs/**
+node_modules/**/examples/**
+**/node_modules/**/README*
+**/node_modules/**/CHANGELOG*
+**/node_modules/**/LICENSE*
+
+# Build and CI
+.github/**
+*.log
+.DS_Store
+
+# Documentation (except README.md and LICENSE)
+*.md
+!README.md
+!LICENSE.txt
+
+# Package management
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+pnpm-workspace.yaml
+
+# Environment
+.env
+.env.local
+
+# IDE specific
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude
+.claude/
+
+# Include only necessary files
+!out/**
+!media/**
+!package.json
+!README.md
+!LICENSE.txt

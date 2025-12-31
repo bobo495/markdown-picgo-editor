@@ -189,11 +189,25 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
                         });
                     };
 
+                    // Detect VS Code theme
+                    const isDark = document.body.classList.contains('vscode-dark') ||
+                                   document.body.classList.contains('vscode-high-contrast');
+
                     try {
                         // Initialize Vditor
                         vditor = new Vditor('vditor', {
                         height: '100%',
                         mode: 'ir', // Instant Rendering mode
+                        theme: isDark ? 'dark' : 'classic',
+                        preview: {
+                            theme: {
+                                current: isDark ? 'dark' : 'classic',
+                            },
+                            hljs: {
+                                lineNumber: true,
+                                style: 'atom-one-dark',
+                            },
+                        },t
                         toolbar: [
                             'emoji', 'headings', 'bold', 'italic', 'strike', 'link', '|',
                             'list', 'ordered-list', 'check', 'outdent', 'indent', '|',
