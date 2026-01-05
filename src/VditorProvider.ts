@@ -208,6 +208,10 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
                                 style: 'atom-one-dark',
                             },
                         },
+                        outline: {
+                            enable: true,
+                            position: 'right',
+                        },
                         toolbar: [
                             'emoji', 'headings', 'bold', 'italic', 'strike', 'link', '|',
                             'list', 'ordered-list', 'check', 'outdent', 'indent', '|',
