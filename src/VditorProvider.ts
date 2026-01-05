@@ -50,7 +50,7 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
 
         // Reverting the options assignment.
 
-        webviewPanel.webview.html = this.getHtmlForWebview(webviewPanel.webview);
+        webviewPanel.webview.html = this.getHtmlForWebview();
 
         let isFromWebview = false;
 
@@ -149,12 +149,10 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
         await vscode.workspace.applyEdit(edit);
     }
 
-    private getHtmlForWebview(webview: vscode.Webview): string {
-        // Use index.min.js and index.css as requested
-        const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(
-            this.context.extensionUri, 'media', 'index.min.js'));
-        const styleUri = webview.asWebviewUri(vscode.Uri.joinPath(
-            this.context.extensionUri, 'media', 'index.css'));
+    private getHtmlForWebview(): string {
+        // Use CDN URLs for Vditor
+        const scriptUri = 'https://unpkg.com/vditor/dist/index.min.js';
+        const styleUri = 'https://unpkg.com/vditor/dist/index.css';
 
         return `
             <!DOCTYPE html>
@@ -291,6 +289,47 @@ export class VditorProvider implements vscode.CustomTextEditorProvider {
                             error: 'Vditor Init Error: ' + e.message
                         });
                     }
+
+                    // Handle cut, copy, paste events
+                    document.addEventListener('keydown', (e) => {
+                        // Ctrl/Cmd + X (Cut)
+                        if ((e.ctrlKey || e.metaKey) && e.key === 'x') {
+                            e.preventDefault();
+                            if (vditor) {
+                                const selection = vditor.getSelection();
+                                if (selection) {
+                                    navigator.clipboard.writeText(selection).then(() => {
+                                        // Delete selected content
+                                        vditor.deleteValue();
+                                    });
+                                }
+                            }
+                        }
+                        // Ctrl/Cmd + C (Copy)
+                        else if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+                            e.preventDefault();
+                            if (vditor) {
+                                const selection = vditor.getSelection();
+                                if (selection) {
+                                    navigator.clipboard.writeText(selection);
+                                }
+                            }
+                        }
+                        // Ctrl/Cmd + V (Paste)
+                        else if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
+                            e.preventDefault();
+                            if (vditor) {
+                                navigator.clipboard.readText().then(text => {
+                                    if (text) {
+                                        vditor.insertValue(text);
+                                    }
+                                }).catch(() => {
+                                    // Fallback: if clipboard API fails, let browser handle it
+                                    // This might not work in all VS Code webview contexts
+                                });
+                            }
+                        }
+                    });
 
                     // Handle messages from the extension
                     window.addEventListener('message', event => {

@@ -52,9 +52,7 @@
       }
     }
   },
-  "dependencies": {
-    "vditor": "^3.1.10"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.106.1",
